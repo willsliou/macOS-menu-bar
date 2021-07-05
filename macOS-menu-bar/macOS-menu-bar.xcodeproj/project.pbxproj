@@ -13,6 +13,7 @@
 		EFC9BC2D2693A9270036E2D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFC9BC2C2693A9270036E2D2 /* Preview Assets.xcassets */; };
 		EFC9BC392693A9270036E2D2 /* macOS_menu_barTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9BC382693A9270036E2D2 /* macOS_menu_barTests.swift */; };
 		EFC9BC442693A9270036E2D2 /* macOS_menu_barUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9BC432693A9270036E2D2 /* macOS_menu_barUITests.swift */; };
+		EFC9BC542693AA660036E2D2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9BC532693AA660036E2D2 /* MenuView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		EFC9BC3F2693A9270036E2D2 /* macOS-menu-barUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "macOS-menu-barUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFC9BC432693A9270036E2D2 /* macOS_menu_barUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = macOS_menu_barUITests.swift; sourceTree = "<group>"; };
 		EFC9BC452693A9270036E2D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFC9BC532693AA660036E2D2 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		EFC9BC242693A9250036E2D2 /* macOS-menu-bar */ = {
 			isa = PBXGroup;
 			children = (
+				EFC9BC512693AA170036E2D2 /* Shared */,
 				EFC9BC252693A9250036E2D2 /* macOS_menu_barApp.swift */,
 				EFC9BC272693A9250036E2D2 /* ContentView.swift */,
 				EFC9BC292693A9270036E2D2 /* Assets.xcassets */,
@@ -130,6 +133,22 @@
 				EFC9BC452693A9270036E2D2 /* Info.plist */,
 			);
 			path = "macOS-menu-barUITests";
+			sourceTree = "<group>";
+		};
+		EFC9BC512693AA170036E2D2 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				EFC9BC522693AA4B0036E2D2 /* Menu */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		EFC9BC522693AA4B0036E2D2 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				EFC9BC532693AA660036E2D2 /* MenuView.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -262,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFC9BC282693A9250036E2D2 /* ContentView.swift in Sources */,
+				EFC9BC542693AA660036E2D2 /* MenuView.swift in Sources */,
 				EFC9BC262693A9250036E2D2 /* macOS_menu_barApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

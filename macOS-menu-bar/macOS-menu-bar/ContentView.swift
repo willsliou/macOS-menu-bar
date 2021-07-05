@@ -9,8 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        VStack {
+            Text("macOS Menu Bar")
+                .frame(width: 800, height: 600)
+        }
     }
 }
 
