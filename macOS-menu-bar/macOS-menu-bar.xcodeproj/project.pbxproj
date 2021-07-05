@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EFC9BC262693A9250036E2D2 /* macOS_menu_barApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9BC252693A9250036E2D2 /* macOS_menu_barApp.swift */; };
 		EFC9BC282693A9250036E2D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9BC272693A9250036E2D2 /* ContentView.swift */; };
 		EFC9BC2A2693A9270036E2D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFC9BC292693A9270036E2D2 /* Assets.xcassets */; };
 		EFC9BC2D2693A9270036E2D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFC9BC2C2693A9270036E2D2 /* Preview Assets.xcassets */; };
 		EFC9BC392693A9270036E2D2 /* macOS_menu_barTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9BC382693A9270036E2D2 /* macOS_menu_barTests.swift */; };
 		EFC9BC442693A9270036E2D2 /* macOS_menu_barUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9BC432693A9270036E2D2 /* macOS_menu_barUITests.swift */; };
 		EFC9BC542693AA660036E2D2 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9BC532693AA660036E2D2 /* MenuView.swift */; };
+		EFC9BC572693C0830036E2D2 /* macOS_menu_barApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFC9BC252693A9250036E2D2 /* macOS_menu_barApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -280,9 +280,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFC9BC572693C0830036E2D2 /* macOS_menu_barApp.swift in Sources */,
 				EFC9BC282693A9250036E2D2 /* ContentView.swift in Sources */,
 				EFC9BC542693AA660036E2D2 /* MenuView.swift in Sources */,
-				EFC9BC262693A9250036E2D2 /* macOS_menu_barApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
