@@ -17,10 +17,25 @@ struct MenuView: View {
         VStack {
             
             HStack {
-                TabButton(title: "Help", currentTab: $currentTab)
-                TabButton(title: "Uploads", currentTab: $currentTab)
+                TabButton(title: "Help", currentTab: $currentTab, animation: animation)
+                TabButton(title: "Uploads", currentTab: $currentTab, animation: animation)
             }
+            // Add padding
+            .padding(.horizontal)
+            .padding(.top)
+            
+            Image("box")
+                .resizable()
+                .aspectRatio(contentMode:. fit)
+            
+            
+            
+            // https://developer.apple.com/documentation/swiftui/spacer
+            Spacer(minLength: 0)
         }
+        
+        // Max Menu size
+        .frame(width: 250, height: 500)
     }
 }
 
@@ -34,6 +49,7 @@ struct MenuView_Previews: PreviewProvider {
 struct TabButton: View {
     var title: String
     @Binding var currentTab: String
+    var animation: Namespace.ID
     
     var body: some View {
         
@@ -47,10 +63,24 @@ struct TabButton: View {
                 .frame(maxWidth: .infinity)
                 .background(
                     ZStack {
-                    
+                        
+                        // If on currentTab, make rectangle blue
+                        if currentTab == title {
+                            RoundedRectangle(cornerRadius: 4)
+                                .fill(Color.blue)
+                               // animation refers to variable defined in struct as Namespace.ID
+                                .matchedGeometryEffect(id: "TAB", in: animation)
+                        }
+                        else {
+                            RoundedRectangle(cornerRadius: 4)
+                                .stroke(Color.primary)
+                        }
+                        
+                        
                     } // ZStack
                 ) // background
         } // Button Label bracket
         ) // Button parentheses
+        .buttonStyle(PlainButtonStyle())
     } // var body some View
 } // struct
