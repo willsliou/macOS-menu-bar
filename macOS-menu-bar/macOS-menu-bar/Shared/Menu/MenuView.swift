@@ -25,19 +25,20 @@ struct MenuView: View {
             .padding(.top)
             
             // Divider
-//            Divider() {
-//                .padding(.bottom, 4)
-//            }
+            Divider()
+                .padding(.top, 5)
             
             // Adding image from Assets folder
             // https://www.simpleswiftguide.com/how-to-add-image-to-xcode-project-in-swiftui/
-            Image("doge")
+            Image("doge-money-icon")
                 .resizable()
                 .scaledToFit()
                 .aspectRatio(contentMode:. fit)
-                .padding(30)
+                .padding(3)
  
-            
+            // Bottom divider
+            Divider()
+                .padding(.bottom, 5)
             
             // https://developer.apple.com/documentation/swiftui/spacer
             Spacer(minLength: 0)
