@@ -12,7 +12,7 @@ struct ContentView: View {
         
         VStack {
             Text("macOS Menu Bar")
-                .frame(width: 800, height: 600)
+                .frame(width: 300, height: 300)
         }
     }
 }

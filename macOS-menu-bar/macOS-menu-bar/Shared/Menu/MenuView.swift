@@ -34,18 +34,66 @@ struct MenuView: View {
                 .resizable()
                 .scaledToFit()
                 .aspectRatio(contentMode:. fit)
-                .padding(3)
- 
-            // Bottom divider
-            Divider()
-                .padding(.bottom, 5)
+                .padding(30)
+            
+            // Text and Buttons for Image
+            HStack{
+                // Text
+                Text("Share")
+                    .font(.callout)
+                    .fontWeight(.semibold)
+                    .foregroundColor(.primary)
+                
+                // Button Object for Sharing Icon
+                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
+                    Image(systemName:
+                        "square.and.arrow.up")
+                        .foregroundColor(.primary)
+                    } // Button label paranthesis
+                    )//Button paranthesis
+                    
+            }
+            
             
             // https://developer.apple.com/documentation/swiftui/spacer
-            Spacer(minLength: 0)
+            Spacer(minLength: 15)
         }
+        // Bottom divider
+        Divider()
+            .padding(.bottom, 5)
+
+            
+        // Bottom View
+        HStack {
+            
+            // Insert and resize image
+            Image("poseidon")
+                .resizable()
+                .aspectRatio(contentMode:. fill)
+                .frame(width: 25, height: 25)
+                .clipShape(Circle())
+            
+            Text("Poseidon")
+                .font(.callout)
+                .fontWeight(.semibold)
+                .foregroundColor(.primary)
+            
+            Spacer(minLength: 0)
+            
+            // Button object
+            Button(action: {}, label: {
+                Image(systemName: "gearshape.fill")
+                    .foregroundColor(.primary)
+            } // Button label bracket
+            ) // Button paranthesis
+            buttonStyle(PlainButtonStyle())
+        }
+        //Add paddding on bottom
+        .padding(.horizontal)
+        .padding(.vertical)
         
         // Max Menu size
-        .frame(width: 250, height: 500)
+        .frame(width: 250, height: 300)
     }
 }
 
