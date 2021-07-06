@@ -45,23 +45,21 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Validation check if status button is avaliable
         if let MenuButton = statusItem?.button {
             
+            // Set arrow image
             MenuButton.image = NSImage(systemSymbolName: "icloud.and.arrow.up.fill", accessibilityDescription: nil)
             MenuButton.action = #selector(MenuButtonToggle)
         } // if MenuButton bracket
     } // function application bracket
     
     
-    
-    
-    
-    
+    // Button action
     @objc func MenuButtonToggle() {
-        if let menuButton = statusItem?.bottom{
-//             Top Get
-            self.popOver.show(relativeTo: menuButton.bounds, of: menuButton, preferredEdge: NSRectEdge.minY)
-            
-        }
+        print("hello")
     }
+    
+    
+    
+
     
     
 } // class object
