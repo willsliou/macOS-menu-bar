@@ -34,7 +34,8 @@ struct MenuView: View {
                 .resizable()
                 .scaledToFit()
                 .aspectRatio(contentMode:. fit)
-                .padding(30)
+                .padding(25)
+                .frame(width: 100, height:100)
             
             // Text and Buttons for Image
             HStack{
@@ -53,14 +54,12 @@ struct MenuView: View {
                     )//Button paranthesis
                     
             }
-            
-            
             // https://developer.apple.com/documentation/swiftui/spacer
-            Spacer(minLength: 15)
+            Spacer(minLength: 0)
         }
         // Bottom divider
-        Divider()
-            .padding(.bottom, 5)
+//        Divider()
+//            .padding(.bottom, 2)
 
             
         // Bottom View
@@ -69,8 +68,8 @@ struct MenuView: View {
             // Insert and resize image
             Image("poseidon")
                 .resizable()
-                .aspectRatio(contentMode:. fill)
-                .frame(width: 25, height: 25)
+                .aspectRatio(contentMode:. fit)
+                .frame(width: 50, height: 50)
                 .clipShape(Circle())
             
             Text("Poseidon")
@@ -93,7 +92,7 @@ struct MenuView: View {
         .padding(.vertical)
         
         // Max Menu size
-        .frame(width: 250, height: 300)
+        .frame(width: 250, height: 500)
     }
 }
 
@@ -131,7 +130,7 @@ struct TabButton: View {
                         }
                         else {
                             RoundedRectangle(cornerRadius: 4)
-                                .stroke(Color.primary)
+                                .stroke(Color.primary, lineWidth: 0.6)
                         }
                         
                         

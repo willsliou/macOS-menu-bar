@@ -54,8 +54,15 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     // Button action
     @objc func MenuButtonToggle() {
-        print("hello")
-    }
+        
+        // Show popover
+        if let menuButton = statusItem?.button {
+            // Get button location for popover arrow
+            self.popOver.show(relativeTo: menuButton.bounds, of: menuButton, preferredEdge: NSRectEdge.minY)
+        } // if menuButton bracket
+        
+        
+    } // function object bracket
     
     
     
