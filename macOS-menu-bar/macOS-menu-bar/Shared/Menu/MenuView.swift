@@ -1,4 +1,3 @@
-// https://developer.apple.com/documentation/
 //  MenuView.swift
 //  macOS-menu-bar
 //
@@ -8,91 +7,69 @@
 import SwiftUI
 
 struct MenuView: View {
-    // Slide animation
     @Namespace var animation
-    // Current Tab
     @State var currentTab = "Uploads"
-    
+
     var body: some View {
-        VStack {
-            
-            HStack {
-                TabButton(title: "Help", currentTab: $currentTab, animation: animation)
-                TabButton(title: "Uploads", currentTab: $currentTab, animation: animation)
-            }
-            // Add padding
-            .padding(.horizontal)
-            .padding(.top)
-            
-            // Divider
-            Divider()
-                .padding(.top, 5)
-            
-            // Adding image from Assets folder
-            // https://www.simpleswiftguide.com/how-to-add-image-to-xcode-project-in-swiftui/
-            Image("doge-money-icon")
-                .resizable()
-                .scaledToFit()
-                .aspectRatio(contentMode:. fit)
-                .padding(25)
-                .frame(width: 100, height:100)
-            
-            // Text and Buttons for Image
+        VStack{
             HStack{
-                // Text
+                TabButton(title: "Help", currentTab: $currentTab,animation: animation)
+                
+                TabButton(title: "Uploads", currentTab: $currentTab,animation: animation)
+            }
+            .padding(.top)
+            .frame(width: 170)
+            
+            // Divider...
+            Divider()
+                .padding(.top,4)
+            
+            Image("doge")
+                .resizable()
+                .aspectRatio(contentMode: .fit)
+                .padding()
+            
+            HStack{
                 Text("Share")
                     .font(.callout)
                     .fontWeight(.semibold)
                     .foregroundColor(.primary)
                 
-                // Button Object for Sharing Icon
-                Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/, label: {
-                    Image(systemName:
-                        "square.and.arrow.up")
+                Button(action: {}, label: {
+                    Image(systemName: "square.and.arrow.up")
                         .foregroundColor(.primary)
-                    } // Button label paranthesis
-                    )//Button paranthesis
-                    
+                })
             }
-            // https://developer.apple.com/documentation/swiftui/spacer
-            Spacer(minLength: 0)
-        }
-        // Bottom divider
-//        Divider()
-//            .padding(.bottom, 2)
-
             
-        // Bottom View
-        HStack {
+            Spacer(minLength: 15)
             
-            // Insert and resize image
-            Image("poseidon")
-                .resizable()
-                .aspectRatio(contentMode:. fit)
-                .frame(width: 50, height: 50)
-                .clipShape(Circle())
+            Divider()
+                .padding(.bottom,2)
             
-            Text("Poseidon")
-                .font(.callout)
-                .fontWeight(.semibold)
-                .foregroundColor(.primary)
-            
-            Spacer(minLength: 0)
-            
-            // Button object
-            Button(action: {}, label: {
-                Image(systemName: "gearshape.fill")
+            HStack{
+                Image("poseidon")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(width: 25, height: 25)
+                    .clipShape(Circle())
+                
+                Text("Poseidon")
+                    .font(.callout)
+                    .fontWeight(.semibold)
                     .foregroundColor(.primary)
-            } // Button label bracket
-            ) // Button paranthesis
-            buttonStyle(PlainButtonStyle())
+                
+                Spacer(minLength: 0)
+                
+                Button(action: {}, label: {
+                    Image(systemName: "gearshape.fill")
+                        .foregroundColor(.primary)
+                })
+                .buttonStyle(PlainButtonStyle())
+            }
+            .padding(.horizontal)
+            .padding(.bottom)
         }
-        //Add paddding on bottom
-        .padding(.horizontal)
-        .padding(.vertical)
-        
-        // Max Menu size
-        .frame(width: 250, height: 500)
+        .frame(width: 250, height: 300)
     }
 }
 
@@ -108,36 +85,38 @@ struct TabButton: View {
     @Binding var currentTab: String
     var animation: Namespace.ID
     
-    var body: some View {
+    var body: some View{
         
-        Button(action: {}, label: {
+        Button(action: {
+            withAnimation{
+                currentTab = title
+            }
+        }, label: {
             Text(title)
-                .font(.callout)
+                .font(.caption)
                 .fontWeight(.bold)
+                
                 // Dark Mode
                 .foregroundColor(currentTab == title ? .white : .primary)
-                .padding(.vertical, 4)
+                .padding(.vertical,4)
                 .frame(maxWidth: .infinity)
                 .background(
-                    ZStack {
-                        
-                        // If on currentTab, make rectangle blue
-                        if currentTab == title {
+                
+                    ZStack{
+                        if currentTab == title{
                             RoundedRectangle(cornerRadius: 4)
                                 .fill(Color.blue)
-                               // animation refers to variable defined in struct as Namespace.ID
                                 .matchedGeometryEffect(id: "TAB", in: animation)
                         }
                         else {
+                            // Primary Border...
                             RoundedRectangle(cornerRadius: 4)
-                                .stroke(Color.primary, lineWidth: 0.6)
+                                .stroke(Color.primary,lineWidth: 0.6)
                         }
-                        
-                        
-                    } // ZStack
-                ) // background
-        } // Button Label bracket
-        ) // Button parentheses
+                    }
+                )
+                .contentShape(RoundedRectangle(cornerRadius: 4))
+        })
         .buttonStyle(PlainButtonStyle())
-    } // var body some View
-} // struct
+    }
+}

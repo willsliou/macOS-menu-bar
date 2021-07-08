@@ -9,71 +9,54 @@ import SwiftUI
 
 @main
 struct macOS_menu_barApp: App {
-    // Connect App Delegate
     @NSApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    
     var body: some Scene {
         WindowGroup {
             ContentView()
-        } // WindowGroup
+        }
     }
 }
 
-// Menu Button
-class AppDelegate: NSObject, NSApplicationDelegate {
-    
-    // Status Bar Item
+class AppDelegate: NSObject,NSApplicationDelegate{
+    // Status Bar and popover
     var statusItem: NSStatusItem?
-    // Popover
     var popOver = NSPopover()
-        
+    
     func applicationDidFinishLaunching(_ notification: Notification) {
+        
+        // Menu View
         let menuView = MenuView()
         
-        // create popover
+        // PopOver
         popOver.behavior = .transient
         popOver.animates = true
-        // Setting Empty View Controller
-        // https://developer.apple.com/documentation/appkit/nswindow/1419615-contentviewcontroller
+
         popOver.contentViewController = NSViewController()
         popOver.contentViewController?.view = NSHostingView(rootView: menuView)
         
-        // Status Bar Button
+        popOver.contentViewController?.view.window?.makeKey()
+        
+        // Status Bar
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
-        
-        // Validation check if status button is avaliable
-        if let MenuButton = statusItem?.button {
-            
-            // Set arrow image
+        // Safe Check if status Button is Available or not...
+        if let MenuButton = statusItem?.button{
             MenuButton.image = NSImage(systemSymbolName: "icloud.and.arrow.up.fill", accessibilityDescription: nil)
             MenuButton.action = #selector(MenuButtonToggle)
-        } // if MenuButton bracket
-    } // function application bracket
+        }
+    }
     
-    
-    // Button action
-    @objc func MenuButtonToggle() {
+    // Button Action...
+    @objc func MenuButtonToggle(sender: AnyObject){
         
-        // Show popover
-        if let menuButton = statusItem?.button {
-            // Get button location for popover arrow
-            self.popOver.show(relativeTo: menuButton.bounds, of: menuButton, preferredEdge: NSRectEdge.minY)
-        } // if menuButton bracket
-        
-        
-    } // function object bracket
-    
-    
-    
-
-    
-    
-} // class object
-    
-    
-    
-    
-
-
-// Pop Over Menu
+        // Validation check
+        if popOver.isShown{
+            popOver.performClose(sender)
+        }
+        else{
+            if let menuButton = statusItem?.button{
+                self.popOver.show(relativeTo: menuButton.bounds, of: menuButton, preferredEdge: NSRectEdge.minY)
+            }
+        }
+    }
+}
